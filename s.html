@@ -1,0 +1,21 @@
+http=require("http");
+url=require("url");
+querystring=require("querystring");
+function onRequest(request,response)
+{
+    var path=url.parse(request.url).pathname;
+    console.log("Request for "+path+" received.");
+    var query=url.parse(require.url).query;
+    console.log(query);
+    var name=querystring.parse(query)["name"];
+    var usernamename=querystring.parse(query)["username"];
+    var email=querystring.parse(query)["email"];
+    var phonenumber=querystring.parse(query)["Phone numer"];
+    var password=querystring.parse(query)["password"];
+    var password1=querystring.parse(query)["password1"];
+    response.write('Hello '+name+' , Your email id '+email);
+    response.end();
+
+}
+http.createServer(onRequest).listen(2000);
+console.log("server has started");
